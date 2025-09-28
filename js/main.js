@@ -246,8 +246,15 @@ function openNewTab41() {
 
 
 
+  function openNewTabLinkedIn() {
+    const url = 'https://www.linkedin.com/in/waqar-ahmed-0b2ba021b/';
+    window.open(url, '_blank');
+  }
 
 
+  document.querySelector('.fab.fa-linkedin-in').addEventListener('mouseover', function() {
+  this.style.cursor = 'pointer';
+});
 
   
 
