@@ -263,18 +263,6 @@ function openNewTab41() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 $(function() {
 
   "use strict";
@@ -794,32 +782,6 @@ $(function() {
     }
   });
 
-  $("#form").submit(function() {
-    $.ajax({
-      type: "POST",
-      url: "mail.php",
-      data: $(this).serialize()
-    }).done(function() {
-
-      var tl = anime.timeline({
-        easing: 'easeOutExpo',
-      });
-
-      tl
-        .add({
-          targets: '.art-submit',
-          opacity: 0,
-          scale: .5,
-        })
-        .add({
-          targets: '.art-success',
-          scale: 1,
-          height: '45px',
-        })
-    });
-    return false;
-  });
-
   // portfolio filter
   $('.art-filter a').on('click', function() {
     $('.art-filter .art-current').removeClass('art-current');
@@ -1023,31 +985,6 @@ $(function() {
       continuousScrolling: true,
     });
 
-    $("#form").submit(function() {
-      $.ajax({
-        type: "POST",
-        url: "mail.php",
-        data: $(this).serialize()
-      }).done(function() {
-
-        var tl = anime.timeline({
-          easing: 'easeOutExpo',
-        });
-
-        tl
-          .add({
-            targets: '.art-submit',
-            opacity: 0,
-            scale: .5,
-          })
-          .add({
-            targets: '.art-success',
-            scale: 1,
-            height: '45px',
-          })
-      });
-      return false;
-    });
 
     // Masonry Grid
     $('.art-grid').isotope({
@@ -1228,4 +1165,43 @@ $(function() {
 
   })
 
+});
+
+
+
+
+$("#contact-form").submit(function(e) {
+  e.preventDefault(); // default form submit ko roka
+
+  var form = $(this);
+
+  $.ajax({
+    type: "POST",
+    url: form.attr("action"), // Formspree URL
+    data: form.serialize(),
+    dataType: "json"
+  }).done(function() {
+    // inputs clear karo
+    form[0].reset();
+
+    // success message show karo
+    $("#form-success").fadeIn().delay(3000).fadeOut();
+
+    // agar animation chahiye to
+    var tl = anime.timeline({ easing: 'easeOutExpo' });
+    tl
+      .add({
+        targets: '.art-submit',
+        opacity: 0.5,
+        scale: .9,
+        duration: 400
+      })
+      .add({
+        targets: '#form-success',
+        scale: 1,
+        duration: 600
+      });
+  }).fail(function() {
+    alert("❌ Error: Your message could not be sent. Please try again.");
+  });
 });

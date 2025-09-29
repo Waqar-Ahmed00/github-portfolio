@@ -2097,7 +2097,7 @@
                     <div class="art-a art-card">
 
                      <!-- contact form -->
-                     <form id="contact-form" class="art-contact-form">
+                     <form id="contact-form" class="art-contact-form"  action="https://formspree.io/f/meorazqo" method="POST">
                       <!-- form field -->
                       <div class="art-form-field">
                         <!-- name input -->
@@ -2121,18 +2121,18 @@
                         <!-- services dropdown -->
                         <select id="services" name="services" class="myservice" required>
                           <option class="serv" value="" disabled selected>Choose a service</option>
-                          <option class="serv" value="wash">Web Development
+                          <option class="serv" value="Web Development">Web Development
                           </option>
-                          <option class="serv" value="dry">Front-End Development
+                          <option class="serv" value="Front-End Development">Front-End Development
                           </option>
-                          <option class="serv" value="fold">CMS Development
+                          <option class="serv" value="CMS Development">CMS Development
                           </option>
-                          <option class="serv" value="pickup">WordPress Development
+                          <option class="serv" value="WordPress Development">WordPress Development
                           </option>
-                          <option class="serv" value="delivery">E-commerce Development
+                          <option class="serv" value="E-commerce Development">E-commerce Development
                           </option>
 
-                          <option class="serv" value="delivery">Website Maintenance & Support</option>
+                          <option class="serv" value="Website Maintenance & Support">Website Maintenance & Support</option>
                         </select>
                         <!-- label -->
                         <label for="services"><i class="fas fa-list"></i></label>
@@ -2148,12 +2148,16 @@
                       </div>
                       <!-- form field end -->
                     
-                      <!-- button -->
-                      <div class="art-submit-frame">
-                        <button class="art-btn art-btn-md art-submit" type="submit"><span>Send message</span></button>
-                        <!-- success -->
-                        <div class="art-success">Success <i class="fas fa-check"></i></div>
+                 <!-- button -->
+                    <div class="art-submit-frame">
+                      <button class="art-btn art-btn-md art-submit" type="submit">
+                        <span>Send message</span>
+                      </button>
+                      <!-- success -->
+                      <div id="form-success" class="art-success mt-4" style="display:none;">
+                        ✅ Your message has been sent successfully!
                       </div>
+                    </div>
                     </form>
                     
                     <!-- contact form end -->
@@ -2284,22 +2288,6 @@
   <!-- app end -->
 
 
-  <script type="text/javascript">
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    var serviceID = 'service_59599'; // Replace with your EmailJS service ID
-    var templateID = 'template_j87t33s'; // Replace with your EmailJS template ID
-
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(function() {
-        alert('Your message has been sent!');
-      }, function(error) {
-        alert('Failed to send the message, please try again.');
-        console.log('FAILED...', error); // Log the error for further troubleshooting
-      });
-  });
-</script>
 
   <!-- jquery js -->
   <script src="js/plugins/jquery.min.js"></script>
