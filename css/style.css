@@ -449,8 +449,8 @@ space
 
 /* line 358, ../scss/_common.scss */
 .p-15-15 {
-  padding-top: 15px;
-  padding-bottom: 15px; }
+  padding-top: 15px !important;
+  padding-bottom: 15px !important; }
 
 /* line 363, ../scss/_common.scss */
 .p-15-0 {
